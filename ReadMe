@@ -1,0 +1,24 @@
+Application Level File­Sharing­Protocol with support for download and upload for files and indexed searching
+
+compilation: gcc FTP.c -o ftp -lssl -lcrypto
+
+run using ./a.out <server_port> <server_ip> <client_port> type<"tcp"/"udp">
+
+The possible commands are:-
+IndexGet --longlist
+IndexGet --shortlist <time1> <time2>
+IndexGet --regex <regex>
+history
+
+FileUpload <file>
+
+FileDownload <file>
+
+FileHash --verify <file>
+FileHash --checkall
+
+Approach:-
+There is a fork within the code so that server and client are running simultaniously
+Based on the protocol mentioned when the code is run(tcp/udp) Upload/Download takes place
+
+The server has a file permission which will have either "FileUploadAllow" or "FileUploadDeny" in it which allow's or denies uploading of files
